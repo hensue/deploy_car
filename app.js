@@ -11,50 +11,50 @@ const cors = require("cors");
 
 app.use(cors());
 
-mongoose.Promise = global.Promise;
+// mongoose.Promise = global.Promise;
 
-mongoose.connect(
-  "mongodb://localhost:27017",
-  {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  },
-  (err) => {
-    if (err) throw err;
-    console.log("Connected to MongoDB!!!");
-  }
-);
+// mongoose.connect(
+//   "mongodb://localhost:27017",
+//   {
+//     useNewUrlParser: true,
+//     useUnifiedTopology: true,
+//   },
+//   (err) => {
+//     if (err) throw err;
+//     console.log("Connected to MongoDB!!!");
+//   }
+// );
 
-const storage = multer.diskStorage({
-  destination: 'uploads/',
-  filename: function (req, file, cb) {
-    cb(null, file.originalname);
-  }
-});
+// const storage = multer.diskStorage({
+//   destination: 'uploads/',
+//   filename: function (req, file, cb) {
+//     cb(null, file.originalname);
+//   }
+// });
 
-const upload = multer({storage});
+// const upload = multer({storage});
 
-app.use('/api/upload', upload.array('files'), (req, res)=>{
+// app.use('/api/upload', upload.array('files'), (req, res)=>{
 
-})
+// })
 
-app.use('/api/download/:filename', (req, res) => {
-  const filename = req.params.filename;
-  const filePath = path.join(__dirname, 'uploads', filename); 
+// app.use('/api/download/:filename', (req, res) => {
+//   const filename = req.params.filename;
+//   const filePath = path.join(__dirname, 'uploads', filename); 
 
-  res.download(filePath, (err) => {
-    if (err) {
-      res.status(500).send('Error downloading file');
-    }
-  });
-});
+//   res.download(filePath, (err) => {
+//     if (err) {
+//       res.status(500).send('Error downloading file');
+//     }
+//   });
+// });
 
 
-app.use(bodyParser.json());
+// app.use(bodyParser.json());
 
-app.use("/api/cars/", require("./routes/carsRoute"));
-app.use("/api/users/", require("./routes/usersRoute"));
-app.use("/api/bookings/", require("./routes/bookingsRoute"));
+// app.use("/api/cars/", require("./routes/carsRoute"));
+// app.use("/api/users/", require("./routes/usersRoute"));
+// app.use("/api/bookings/", require("./routes/bookingsRoute"));
 
 // app.use(express.static("public"))
 
