@@ -39,20 +39,20 @@ const storage = multer.diskStorage({
 
 const upload = multer({storage});
 
-app.use('/api/upload', upload.array('files'), (req, res)=>{
+// app.use('/api/upload', upload.array('files'), (req, res)=>{
 
-})
+// })
 
-app.use('/api/download/:filename', (req, res) => {
-  const filename = req.params.filename;
-  const filePath = path.join(__dirname, 'uploads', filename); 
+// app.use('/api/download/:filename', (req, res) => {
+//   const filename = req.params.filename;
+//   const filePath = path.join(__dirname, 'uploads', filename); 
 
-  res.download(filePath, (err) => {
-    if (err) {
-      res.status(500).send('Error downloading file');
-    }
-  });
-});
+//   res.download(filePath, (err) => {
+//     if (err) {
+//       res.status(500).send('Error downloading file');
+//     }
+//   });
+// });
 
 
 // app.use(bodyParser.json());
