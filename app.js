@@ -30,18 +30,18 @@ mongoose.connect(
 // client = MongoClient('mongodb+srv://sillva230456:Fj5j3l7kBIhas3V6@cluster0.lkz8cgp.mongodb.net/?retryWrites=true&w=majority')
 // db1 = client['guide']
 
-const storage = multer.diskStorage({
-  destination: 'uploads/',
-  filename: function (req, file, cb) {
-    cb(null, file.originalname);
-  }
-});
+// const storage = multer.diskStorage({
+//   destination: 'uploads/',
+//   filename: function (req, file, cb) {
+//     cb(null, file.originalname);
+//   }
+// });
 
-const upload = multer({storage});
+// const upload = multer({storage});
 
-app.use('/api/upload', upload.array('files'), (req, res)=>{
+// app.use('/api/upload', upload.array('files'), (req, res)=>{
 
-})
+// })
 
 app.use('/api/download/:filename', (req, res) => {
   const filename = req.params.filename;
