@@ -11,19 +11,24 @@ const cors = require("cors");
 
 app.use(cors());
 
-// mongoose.Promise = global.Promise;
+mongoose.Promise = global.Promise;
 
-// mongoose.connect(
-//   "mongodb://localhost:27017",
-//   {
-//     useNewUrlParser: true,
-//     useUnifiedTopology: true,
-//   },
-//   (err) => {
-//     if (err) throw err;
-//     console.log("Connected to MongoDB!!!");
-//   }
-// );
+mongoose.connect(
+  "mongodb+srv://sillva230456:Fj5j3l7kBIhas3V6@cluster0.lkz8cgp.mongodb.net/?retryWrites=true&w=majority",
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  },
+  (err) => {
+    if (err) throw err;
+    console.log("Connected to MongoDB!!!");
+  }
+);
+// db = connect('guide', host='mongodb+srv://sillva230456:Fj5j3l7kBIhas3V6@cluster0.lkz8cgp.mongodb.net/?retryWrites=true&w=majority')
+// print(db)
+// ma = Marshmallow(app)
+// client = MongoClient('mongodb+srv://sillva230456:Fj5j3l7kBIhas3V6@cluster0.lkz8cgp.mongodb.net/?retryWrites=true&w=majority')
+// db1 = client['guide']
 
 // const storage = multer.diskStorage({
 //   destination: 'uploads/',
