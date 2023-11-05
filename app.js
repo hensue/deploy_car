@@ -30,14 +30,14 @@ mongoose.connect(
 // client = MongoClient('mongodb+srv://sillva230456:Fj5j3l7kBIhas3V6@cluster0.lkz8cgp.mongodb.net/?retryWrites=true&w=majority')
 // db1 = client['guide']
 
-const storage = multer.diskStorage({
-  destination: 'uploads/',
-  filename: function (req, file, cb) {
-    cb(null, file.originalname);
-  }
-});
+// const storage = multer.diskStorage({
+//   destination: 'uploads/',
+//   filename: function (req, file, cb) {
+//     cb(null, file.originalname);
+//   }
+// });
 
-const upload = multer({storage});
+// const upload = multer({storage});
 
 // app.use('/api/upload', upload.array('files'), (req, res)=>{
 
@@ -55,11 +55,11 @@ const upload = multer({storage});
 // });
 
 
-// app.use(bodyParser.json());
+app.use(bodyParser.json());
 
-// app.use("/api/cars/", require("./routes/carsRoute"));
-// app.use("/api/users/", require("./routes/usersRoute"));
-// app.use("/api/bookings/", require("./routes/bookingsRoute"));
+app.use("/api/cars/", require("./routes/carsRoute"));
+app.use("/api/users/", require("./routes/usersRoute"));
+app.use("/api/bookings/", require("./routes/bookingsRoute"));
 
 // app.use(express.static("public"))
 
